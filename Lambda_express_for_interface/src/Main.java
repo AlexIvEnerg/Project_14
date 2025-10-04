@@ -9,8 +9,8 @@ public class Main {
         // to see how IntelliJ IDEA suggests fixing it.
         //System.out.printf("Hello and welcome!");
         String s = "Hello!";
-        Printable printable = System.out::println;
-        printable.print(s);
+        Printable printable = Printable::print;
+        printable.method(s);
 
         Predicate<String> predicate1 = Objects::nonNull;
         System.out.println(predicate1.test(s));
@@ -18,7 +18,7 @@ public class Main {
         System.out.println(predicate1.and(predicate2).test(s));
 
         s = "Java data";
-        printable.print(s);
+        printable.method(s);
         Predicate<String> predicate3 = t -> t.contains("J");
         Predicate<String> predicate4 = t -> t.contains("N");
         Predicate<String> predicate5 = t -> t.contains("a");
