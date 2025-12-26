@@ -60,6 +60,7 @@ public class Main {
         for (int l = boxQueue.size(); l>0 ;l--) {
             boxQueue.poll();
         }
+        System.out.println();
 
         ArrayList<Box> boxList = new ArrayList<>();
         boxList.add(new Box(20.0, 10.0, 30.0));
@@ -69,7 +70,9 @@ public class Main {
 
         ArrayList<Box> boxList2 = new ArrayList<>();
         iterBox(boxList, boxList2);
+        System.out.println("boxList");
         for (Box box : boxList) { box.viewingOfBox(); }
+        System.out.println("boxList2");
         for (Box box : boxList2) { box.viewingOfBox(); }
     }
 
@@ -79,8 +82,8 @@ public class Main {
             if(box.width > 30.0) {
                 list2.add(i,box);
                 i++;
-                Box removeBox = list1.remove(list1.indexOf(box));
             }
         }
+        list1.removeIf(box -> box.width > 30.0);
     }
 }
